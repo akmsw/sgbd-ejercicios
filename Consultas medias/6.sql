@@ -2,28 +2,28 @@
 
 SELECT
 	c.first_name,
-    c.last_name
+    	c.last_name
 FROM
 	(
-        SELECT
-            c.customer_id,
-            AVG(p.amount) AS avg_total_payments
-        FROM
-            payment p
-        JOIN
-            customer c
-            USING(customer_id)
-        GROUP BY
-            c.customer_id  
-        HAVING
-            avg_total_payments
-            >	(
-                    SELECT
-                        AVG(amount)
-                    FROM
-                        payment p
-                )
-    ) catp
+		SELECT
+			c.customer_id,
+			AVG(p.amount) AS avg_total_payments
+		FROM
+			payment p
+		JOIN
+			customer c
+			USING(customer_id)
+		GROUP BY
+			c.customer_id  
+		HAVING
+			avg_total_payments
+			>	(
+					SELECT
+						AVG(amount)
+					FROM
+						payment p
+				)
+    	) catp
 JOIN
 	customer c
-    USING(customer_id)
+    	USING(customer_id)
