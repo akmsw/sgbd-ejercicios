@@ -9,17 +9,17 @@ JOIN
 	(
 		SELECT
 			fa.actor_id,
-			    COUNT(DISTINCT fc.category_id) AS total_categories
+		    	COUNT(DISTINCT fc.category_id) AS total_categories
 		FROM
-			    film_actor fa
+		    	film_actor fa
 		JOIN
-			    film_category fc
-			    USING(film_id)
+		    	film_category fc
+		    	USING(film_id)
 		GROUP BY
-			    fa.actor_id
+		    	fa.actor_id
 		HAVING
-			    total_categories
-			    =	(
+		    	total_categories
+		    	=	(
 					SELECT
 						COUNT(*) - 2
 				    	FROM
