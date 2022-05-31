@@ -2,12 +2,12 @@
 
 SELECT
 	c.first_name,
-    c.last_name
+	c.last_name
 FROM
-    rental r
+    	rental r
 JOIN
 	customer c
-    USING(customer_id)
+    	USING(customer_id)
 WHERE
 	r.return_date IS NULL
 GROUP BY
