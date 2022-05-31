@@ -2,20 +2,20 @@
 
 SELECT
 	a.first_name,
-    a.last_name,
-    SUM(f.length) AS total_minutes_in_movies
+    	a.last_name,
+    	SUM(f.length) AS total_minutes_in_movies
 FROM
 	film_actor fa
 JOIN
 	film f
-    USING(film_id)
+    	USING(film_id)
 JOIN
 	actor a
-    USING(actor_id)
+    	USING(actor_id)
 GROUP BY
 	a.actor_id
 ORDER BY
 	total_minutes_in_movies
-    DESC
+    	DESC
 LIMIT
 	5
