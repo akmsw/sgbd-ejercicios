@@ -2,26 +2,26 @@
 
 SELECT
 	a.first_name,
-    a.last_name
+    	a.last_name
 FROM
 	actor a
 WHERE
 	a.actor_id
-    IN
+	IN
     	(	# Busco los IDs de los actores que actuaron en tales films.
-            SELECT
-                DISTINCT fa.actor_id
-            FROM
-                film_actor fa
-            WHERE
-                fa.film_id
-                IN
-                    (	# Busco los IDs de los films con duración menor a 70.
-                        SELECT
-                            film_id
-                        FROM
-                            film f
-                        WHERE
-                            f.length < 70
-                    )
-		)
+        	SELECT
+                	DISTINCT fa.actor_id
+            	FROM
+                	film_actor fa
+            	WHERE
+                	fa.film_id
+                	IN
+			(	# Busco los IDs de los films con duración menor a 70.
+                        	SELECT
+                            		film_id
+                        	FROM
+                            		film f
+                        	WHERE
+                            		f.length < 70
+                    	)
+	)
