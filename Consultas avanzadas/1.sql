@@ -51,8 +51,8 @@ JOIN
 								i.film_id
                         			) fr
                 		)
-    ) fspr
-    USING(film_id)
+	) fspr
+    	USING(film_id)
 JOIN
 	actor a
     	USING(actor_id)
